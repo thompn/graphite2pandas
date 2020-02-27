@@ -43,7 +43,7 @@ def g2p(url, localize='CET'):
     times, values, labels =  [], [], []
     for element in decoded_json:
         labels.append(element['target'])
-        datapoints = zip(*element['datapoints'])
+        datapoints = list(zip(*element['datapoints']))
         values.append(datapoints[0])
         times.append(datapoints[1])
     index = pandas.DatetimeIndex((numpy.array(times[0],dtype='datetime64[s]')))
